@@ -16,8 +16,8 @@ import { SessionLoadingState } from '../store/initialState';
 import AutoGenerateInput from './AutoGenerateInput';
 import AutoGenerateSelect from './AutoGenerateSelect';
 import BackgroundSwatches from './BackgroundSwatches';
-
-const EmojiPicker = dynamic(() => import('@lobehub/ui/es/EmojiPicker'), { ssr: false });
+import AvatarWithUpload from '@/features/AvatarWithUpload';
+// const EmojiPicker = dynamic(() => import('@lobehub/ui/es/EmojiPicker'), { ssr: false });
 
 const AgentMeta = memo(() => {
   const { t } = useTranslation('setting');
@@ -79,12 +79,13 @@ const AgentMeta = memo(() => {
       children: [
         {
           children: (
-            <EmojiPicker
-              backgroundColor={meta.backgroundColor}
-              locale={locale}
-              onChange={(avatar) => updateMeta({ avatar })}
-              value={meta.avatar}
-            />
+            // <EmojiPicker
+            //   backgroundColor={meta.backgroundColor}
+            //   locale={locale}
+            //   onChange={(avatar) => updateMeta({ avatar })}
+            //   value={meta.avatar}
+            // />
+            <AvatarWithUpload size={88} />
           ),
           label: t('settingAgent.avatar.title'),
           minWidth: undefined,
