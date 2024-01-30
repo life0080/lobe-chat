@@ -6,15 +6,16 @@ import { UserCircle, Wand2 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGlobalStore } from '@/store/global';
-import { FORM_STYLE } from '@/const/layoutTokens';
 import { settingsSelectors } from '@/store/global/selectors';
+import { FORM_STYLE } from '@/const/layoutTokens';
+import { useGlobalStore } from '@/store/global';
 
 import { useStore } from '../store';
 import { SessionLoadingState } from '../store/initialState';
 import AutoGenerateInput from './AutoGenerateInput';
 import AutoGenerateSelect from './AutoGenerateSelect';
 import BackgroundSwatches from './BackgroundSwatches';
+
 const EmojiPicker = dynamic(() => import('@lobehub/ui/es/EmojiPicker'), { ssr: false });
 
 const AgentMeta = memo(() => {
