@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import isEqual from 'fast-deep-equal';
 import { isString } from 'lodash-es';
 import { UserCircle, Wand2 } from 'lucide-react';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -28,7 +28,7 @@ const AgentMeta = memo(() => {
     s.autocompleteMeta,
     s.autocompleteAllMeta,
   ]);
-  const locale = useGlobalStore(settingsSelectors.currentLanguage);
+  // const locale = useGlobalStore(settingsSelectors.currentLanguage);
   const loading = useStore((s) => s.autocompleteLoading);
   const meta = useStore((s) => s.meta, isEqual);
 
