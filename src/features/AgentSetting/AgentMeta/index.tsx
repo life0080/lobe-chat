@@ -6,7 +6,7 @@ import { UserCircle, Wand2 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
+import { useGlobalStore } from '@/store/global';
 import { FORM_STYLE } from '@/const/layoutTokens';
 import { settingsSelectors } from '@/store/global/selectors';
 
