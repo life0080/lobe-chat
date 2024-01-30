@@ -17,7 +17,11 @@ import ActionsBar from './ActionsBar';
 export interface ChatListItemProps {
   index: number;
 }
-
+const avatarData = {
+  avatar: './Bluebee Girl.png',
+  backgroundColor: '#ffffff',
+  title: 'BlueBeeGirl',
+};
 const Item = memo<ChatListItemProps>(({ index }) => {
   const { t } = useTranslation('common');
 
@@ -91,7 +95,7 @@ const Item = memo<ChatListItemProps>(({ index }) => {
   return (
     <ChatItem
       actions={<ActionsBar index={index} setEditing={setEditing} />}
-      avatar={item.meta}
+      avatar={avatarData}
       editing={editing}
       error={error}
       errorMessage={<ErrorMessage data={item} />}
