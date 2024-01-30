@@ -3,20 +3,19 @@ import { Button } from 'antd';
 import isEqual from 'fast-deep-equal';
 import { isString } from 'lodash-es';
 import { UserCircle, Wand2 } from 'lucide-react';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FORM_STYLE } from '@/const/layoutTokens';
-// import { settingsSelectors } from '@/store/global/selectors';
+import { settingsSelectors } from '@/store/global/selectors';
 
 import { useStore } from '../store';
 import { SessionLoadingState } from '../store/initialState';
 import AutoGenerateInput from './AutoGenerateInput';
 import AutoGenerateSelect from './AutoGenerateSelect';
 import BackgroundSwatches from './BackgroundSwatches';
-import AvatarWithUpload from '@/features/AvatarWithUpload';
-// const EmojiPicker = dynamic(() => import('@lobehub/ui/es/EmojiPicker'), { ssr: false });
+const EmojiPicker = dynamic(() => import('@lobehub/ui/es/EmojiPicker'), { ssr: false });
 
 const AgentMeta = memo(() => {
   const { t } = useTranslation('setting');
@@ -27,7 +26,7 @@ const AgentMeta = memo(() => {
     s.autocompleteMeta,
     s.autocompleteAllMeta,
   ]);
-  // const locale = useGlobalStore(settingsSelectors.currentLanguage);
+  const locale = useGlobalStore(settingsSelectors.currentLanguage);
   const loading = useStore((s) => s.autocompleteLoading);
   const meta = useStore((s) => s.meta, isEqual);
 
@@ -78,13 +77,12 @@ const AgentMeta = memo(() => {
       children: [
         {
           children: (
-            // <EmojiPicker
-            //   backgroundColor={meta.backgroundColor}
-            //   locale={locale}
-            //   onChange={(avatar) => updateMeta({ avatar })}
-            //   value={meta.avatar}
-            // />
-            <AvatarWithUpload size={88} />
+            <EmojiPicker
+              backgroundColor={meta.backgroundColor}
+              locale={locale}
+              onChange={(avatar) => updateMeta({ avatar })}
+              value={meta.avatar}
+            />
           ),
           label: t('settingAgent.avatar.title'),
           minWidth: undefined,
